@@ -1,0 +1,32 @@
+def make_readable(seconds):
+# input: non-negative INT
+# output: STR in format HH:MM:SS
+    output = 'hh:mm:ss'
+# variables
+    hours = 0
+    minutes = 0
+# find number of whole hours
+    hours = seconds//3600
+# subtract whole hours from seconds
+    seconds = seconds - hours*3600
+# find number of whole minutes
+    minutes = seconds//60
+# subtract whole minutes from seconds
+    seconds = seconds - minutes*60
+# put number of seconds into output
+    if seconds <= 9:
+        output = output.replace('ss', '0'+str(seconds))
+    else:
+        output = output.replace('ss', str(seconds))
+# put number of minutes into output
+    if minutes <= 9:
+        output = output.replace('mm', '0'+str(minutes))
+    else:
+        output = output.replace('mm', str(minutes))
+# put number of hours into output
+    if hours <= 9:
+        output = output.replace('hh', '0'+str(hours))
+    else:
+        output = output.replace('hh', str(hours))
+    
+    return output
